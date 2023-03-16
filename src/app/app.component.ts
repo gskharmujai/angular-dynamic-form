@@ -22,27 +22,27 @@ export class AppComponent {
   
   productForm = this.fb.group({
       name: [''],
-      quantities: this.fb.array([])
+      days: this.fb.array([])
   });
   
   constructor(private fb: FormBuilder) {
-    this.addQuantity();
+    this.addDay();
   }
   
-  get quantities() {
-    return this.productForm.controls['quantities'] as FormArray;
+  get days() {
+    return this.productForm.controls['days'] as FormArray;
   }
 
-  addQuantity() {
-    const quantity = this.fb.group({
+  addDay() {
+    const day = this.fb.group({
       hotel: [''],
       location: ['']
     });
-    this.quantities.push(quantity);
+    this.days.push(day);
   }
   
-  removeQuantity(i:number) {
-    this.quantities.removeAt(i);
+  removeDay(i:number) {
+    this.days.removeAt(i);
   }
 
   onSubmit() {
